@@ -142,6 +142,7 @@ class ClienteServiceTest {
             assertTrue(exception.getMessage().contains("El Cliente Debe Tener Un Responsable si es menor de edad"));
         }
         verify(clienteRepository, never()).save(any(Cliente.class));
+
     }
 
 }

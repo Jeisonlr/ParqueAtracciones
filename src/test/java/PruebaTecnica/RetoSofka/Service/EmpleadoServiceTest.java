@@ -36,6 +36,7 @@ class EmpleadoServiceTest {
         assertEquals("Juan", resultado.getNombre());
         assertEquals(Empleado.TipoEmpleado.OPERADOR, resultado.getTipo());
 
+
     }
 
 
