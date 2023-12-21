@@ -16,6 +16,7 @@ public class ClienteServiceImp implements ClienteService {
     public ClienteServiceImp(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
+
     @Override
     public Iterable<Cliente> obtenerTodosClientes(Integer id) {
 
@@ -26,6 +27,7 @@ public class ClienteServiceImp implements ClienteService {
     {
         return Optional.empty();
     }
+
     @Override
     public Cliente guardarCliente(Cliente cliente) {
         return null;
