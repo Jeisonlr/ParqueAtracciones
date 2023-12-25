@@ -36,8 +36,8 @@ public class Cliente {
     @Column(name = "frecuente")
     private boolean frecuente;
 
-  /*  @OneToMany(mappedBy = "cliente")
-    private List<Tiquete> tiquetes;*/
+   @OneToMany(mappedBy = "cliente")
+    private List<Tiquete> tiquetes;
 
 
 }

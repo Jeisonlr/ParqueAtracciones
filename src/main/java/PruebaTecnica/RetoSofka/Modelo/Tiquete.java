@@ -27,7 +27,7 @@ public class Tiquete {
     private int porcentajeOcupacion;
 
 
- /*   @ManyToOne
+  @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
@@ -37,7 +37,7 @@ public class Tiquete {
 
     @ManyToOne
     @JoinColumn(name = "atraccion_id")
-    private Atraccion atraccion;*/
+    private Atraccion atraccion;
 
 }
 
