@@ -34,7 +34,7 @@ public class TiqueteServiceImpl implements TiqueteService {
 
 
     @Override
-    public List<Tiquete> obtenerTiquetesPorCliente(Long clienteId) {
+    public List<Tiquete> obtenerTiquetesPorCliente(Integer clienteId) {
         return tiqueteRepository.findAllByCliente_Id(clienteId);
     }
 

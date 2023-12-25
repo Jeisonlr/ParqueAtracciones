@@ -16,7 +16,7 @@ public class Atraccion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     @Column
     private String descripcion;
     @Column
@@ -26,7 +26,7 @@ public class Atraccion {
     @Column
     private String estado;
 
-   /* @OneToMany(mappedBy = "atraccion")
-    private List<Tiquete> tiquetes;*/
+   @OneToMany(mappedBy = "atraccion")
+    private List<Tiquete> tiquetes;
 }
 

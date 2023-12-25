@@ -5,7 +5,11 @@ package PruebaTecnica.RetoSofka.Controller;
         import PruebaTecnica.RetoSofka.Modelo.Cliente;
         import PruebaTecnica.RetoSofka.Service.ClienteService;
         import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.http.HttpStatus;
+        import org.springframework.http.ResponseEntity;
         import org.springframework.web.bind.annotation.*;
+
+        import java.util.List;
 
 
 @RestController
@@ -16,19 +20,9 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping("/crearcliente")
-    public Cliente crear (@RequestBody Cliente cliente) throws ApiRequestException {
+    public ResponseEntity<String> crearCliente (@RequestBody Cliente cliente) throws ApiRequestException {
+        clienteService.crearCliente(cliente);
+        return new ResponseEntity<>("Tenemos Un Nuevo Cliente",HttpStatus.CREATED);
 
-        return this.clienteService.crearCliente(cliente);
-    }
-
-    @GetMapping("/{id}")
-    public Iterable<Cliente> obtenerTodosClientes(@PathVariable("id") Integer id) {
-
-        return this.clienteService.obtenerTodosClientes(id);
-    }
-
-    @DeleteMapping("/{id}")
-    public void eliminarCliente(@PathVariable Long id) {
-        clienteService.eliminarCliente(id);
     }
 }

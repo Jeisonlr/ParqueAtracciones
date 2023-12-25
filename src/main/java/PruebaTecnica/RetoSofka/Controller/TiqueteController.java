@@ -29,7 +29,7 @@ public class TiqueteController {
     }
 
     @GetMapping("/cliente/{clienteId}")
-    public ResponseEntity<List<Tiquete>> obtenerTiquetesPorCliente(@PathVariable Long clienteId) {
+    public ResponseEntity<List<Tiquete>> obtenerTiquetesPorCliente(@PathVariable Integer clienteId) {
         List<Tiquete> tiquetes = tiqueteService.obtenerTiquetesPorCliente(clienteId);
         return new ResponseEntity<>(tiquetes, HttpStatus.OK);
     }

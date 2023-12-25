@@ -6,6 +6,7 @@ import PruebaTecnica.RetoSofka.Repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,23 +19,20 @@ public class ClienteServiceImp implements ClienteService {
     }
 
     @Override
-    public Iterable<Cliente> obtenerTodosClientes(Integer id) {
+    public List<Cliente> obtenerTodosClientes(Integer id) {
 
-        return clienteRepository.findAll();
+        return (List<Cliente>) clienteRepository.findAll();
     }
     @Override
-    public Optional<Cliente> obtenerClientePorId(Long id)
+    public Optional<Cliente> obtenerClientePorId(Integer id)
     {
         return Optional.empty();
     }
 
-    @Override
-    public Cliente guardarCliente(Cliente cliente) {
-        return null;
-    }
+
 
     @Override
-    public void eliminarCliente(Long id) {
+    public void eliminarCliente(Integer id) {
 
     }
     @Override

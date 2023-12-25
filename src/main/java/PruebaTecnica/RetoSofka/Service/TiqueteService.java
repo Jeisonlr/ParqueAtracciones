@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface TiqueteService {
     Tiquete crearTiquete(Tiquete tiquete) throws ApiRequestException;
-    List<Tiquete> obtenerTiquetesPorCliente(Long clienteId);
+    List<Tiquete> obtenerTiquetesPorCliente(Integer clienteId);
 
 }
