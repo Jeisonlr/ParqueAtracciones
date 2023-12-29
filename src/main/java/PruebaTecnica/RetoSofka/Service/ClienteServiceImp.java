@@ -46,7 +46,10 @@ public class ClienteServiceImp implements ClienteService {
         } else if (cliente.getCedula() == null) {
             throw new ApiRequestException("El Cliente Debe Tener Una Cédula");
         }if(cliente.getEdad() < 18 ) {
-            throw new ApiRequestException("El Cliente Debe Tener Un Responsable si es menor de edad");
-        } return clienteRepository.save(cliente);
+            if (cliente.getInfoContactoFamiliar() == null || cliente.getInfoContactoFamiliar().isEmpty()) {
+                throw new ApiRequestException("El Cliente Debe Tener Un Responsable si es menor de edad");
+            }
+        }
+        return clienteRepository.save(cliente);
     }
 }
