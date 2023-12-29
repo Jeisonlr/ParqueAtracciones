@@ -1,16 +1,15 @@
 package PruebaTecnica.RetoSofka.Service;
+
 import PruebaTecnica.RetoSofka.Exception.ApiRequestException;
 import PruebaTecnica.RetoSofka.Modelo.Cliente;
-import PruebaTecnica.RetoSofka.Modelo.Empleado;
 import PruebaTecnica.RetoSofka.Repository.ClienteRepository;
-import PruebaTecnica.RetoSofka.Repository.EmpleadoRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Optional;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -28,7 +27,7 @@ class ClienteServiceTest {
     void CrearCliente() throws ApiRequestException {
 
         Cliente cliente = new Cliente(123,"Juan", "perez", "7788",
-                "7176621","j@.com",1.66,32,"juana perez",true);
+                "7176621","j@.com",1.66,32,"juana perez",true, Collections.emptyList());
 
         when(clienteRepository.save(any(Cliente.class))).thenReturn(cliente);
 
@@ -57,13 +56,11 @@ class ClienteServiceTest {
         clienteSinNombre.setEstatura(1.75);
         clienteSinNombre.setEdad(25);
 
-        ApiRequestException exception = assertThrows(ApiRequestException.class, () -> {
-            clienteServiceImp.crearCliente(clienteSinNombre);
-        });
+        ApiRequestException exception = assertThrows(ApiRequestException.class, () -> clienteServiceImp.crearCliente(clienteSinNombre));
 
         assertNotNull(exception);
 
-        assertTrue(exception instanceof ApiRequestException);
+        assertTrue(true);
 
         if (exception.getMessage() != null) {
             assertTrue(exception.getMessage().contains("El Cliente Debe Tener Un Nombre"));
@@ -81,13 +78,11 @@ class ClienteServiceTest {
         clienteSinApellido .setEstatura(1.75);
         clienteSinApellido .setEdad(25);
 
-        ApiRequestException exception = assertThrows(ApiRequestException.class, () -> {
-            clienteServiceImp.crearCliente(clienteSinApellido );
-        });
+        ApiRequestException exception = assertThrows(ApiRequestException.class, () -> clienteServiceImp.crearCliente(clienteSinApellido ));
 
         assertNotNull(exception);
 
-        assertTrue(exception instanceof ApiRequestException);
+        assertTrue(true);
 
         if (exception.getMessage() != null) {
             assertTrue(exception.getMessage().contains("El Cliente Debe Tener Un Apellido"));
@@ -104,13 +99,11 @@ class ClienteServiceTest {
         clienteSinCedula.setEstatura(1.75);
         clienteSinCedula.setEdad(25);
 
-        ApiRequestException exception = assertThrows(ApiRequestException.class, () -> {
-            clienteServiceImp.crearCliente(clienteSinCedula);
-        });
+        ApiRequestException exception = assertThrows(ApiRequestException.class, () -> clienteServiceImp.crearCliente(clienteSinCedula));
 
         assertNotNull(exception);
 
-        assertTrue(exception instanceof ApiRequestException);
+        assertTrue(true);
 
         if (exception.getMessage() != null) {
             assertTrue(exception.getMessage().contains("El Cliente Debe Tener Una Cédula"));
@@ -130,13 +123,11 @@ class ClienteServiceTest {
         clienteMenorDeEdad.setEstatura(1.75);
         clienteMenorDeEdad.setEdad(16);
 
-        ApiRequestException exception = assertThrows(ApiRequestException.class, () -> {
-            clienteServiceImp.crearCliente(clienteMenorDeEdad);
-        });
+        ApiRequestException exception = assertThrows(ApiRequestException.class, () -> clienteServiceImp.crearCliente(clienteMenorDeEdad));
 
         assertNotNull(exception);
 
-        assertTrue(exception instanceof ApiRequestException);
+        assertTrue(true);
 
         if (exception.getMessage() != null) {
             assertTrue(exception.getMessage().contains("El Cliente Debe Tener Un Responsable si es menor de edad"));
